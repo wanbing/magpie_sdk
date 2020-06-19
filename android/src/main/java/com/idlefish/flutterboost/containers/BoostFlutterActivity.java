@@ -2,9 +2,6 @@ package com.idlefish.flutterboost.containers;
 
 
 import android.app.Activity;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.LifecycleRegistry;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -15,13 +12,25 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import android.view.*;
-import android.widget.*;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleRegistry;
+
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.XFlutterView;
 import com.idlefish.flutterboost.XPlatformPlugin;
+
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+
 import io.flutter.Log;
 import io.flutter.embedding.android.DrawableSplashScreen;
 import io.flutter.embedding.android.FlutterView;
@@ -29,10 +38,6 @@ import io.flutter.embedding.android.SplashScreen;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.plugin.platform.PlatformPlugin;
-
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 
 public class BoostFlutterActivity extends Activity
         implements FlutterActivityAndFragmentDelegate.Host,
@@ -72,7 +77,7 @@ public class BoostFlutterActivity extends Activity
         private final Class<? extends BoostFlutterActivity> activityClass;
         private String backgroundMode = DEFAULT_BACKGROUND_MODE;
         private String url = "";
-        private Map params = new HashMap();
+        private  Map<String ,Object> params = new HashMap();
 
 
         public NewEngineIntentBuilder(@NonNull Class<? extends BoostFlutterActivity> activityClass) {
@@ -86,7 +91,7 @@ public class BoostFlutterActivity extends Activity
         }
 
 
-        public NewEngineIntentBuilder params(@NonNull Map params) {
+        public NewEngineIntentBuilder params(@NonNull  Map<String ,Object> params) {
             this.params = params;
             return this;
         }
@@ -478,14 +483,14 @@ public class BoostFlutterActivity extends Activity
     }
 
     @Override
-    public Map getContainerUrlParams() {
+    public  Map<String ,Object> getContainerUrlParams() {
 
         if (getIntent().hasExtra(EXTRA_PARAMS)) {
             SerializableMap serializableMap = (SerializableMap) getIntent().getSerializableExtra(EXTRA_PARAMS);
             return serializableMap.getMap();
         }
 
-        Map<String, String> params = new HashMap<>();
+        Map<String, Object> params = new HashMap<>();
 
         return params;
     }

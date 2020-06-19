@@ -2,23 +2,18 @@ package com.idlefish.flutterboost.containers;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import androidx.lifecycle.Lifecycle;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.io.Serializable;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.Lifecycle;
 
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.Utils;
@@ -26,13 +21,21 @@ import com.idlefish.flutterboost.XFlutterView;
 import com.idlefish.flutterboost.XPlatformPlugin;
 import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
 import com.idlefish.flutterboost.interfaces.IOperateSyncer;
+
+import java.io.Serializable;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 import io.flutter.Log;
 import io.flutter.app.FlutterActivity;
-import io.flutter.embedding.android.*;
+import io.flutter.embedding.android.FlutterEngineConfigurator;
+import io.flutter.embedding.android.FlutterEngineProvider;
+import io.flutter.embedding.android.FlutterView;
+import io.flutter.embedding.android.SplashScreen;
+import io.flutter.embedding.android.SplashScreenProvider;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
-import io.flutter.embedding.engine.plugins.activity.ActivityControlSurface;
-import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 import io.flutter.plugin.platform.PlatformPlugin;
 
 import static android.content.ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW;
@@ -390,7 +393,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     }
 
     @Override
-    public Map getContainerUrlParams() {
+    public Map<String,Object> getContainerUrlParams() {
         return this.host.getContainerUrlParams();
 
     }
@@ -466,7 +469,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
          * Flutter experience should control system chrome.
          */
         @Nullable
-        XPlatformPlugin providePlatformPlugin( @NonNull FlutterEngine flutterEngine);
+        XPlatformPlugin providePlatformPlugin(@NonNull FlutterEngine flutterEngine);
 
         /**
          * Hook for the host to configure the {@link FlutterEngine} as desired.
@@ -482,7 +485,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
 
         String getContainerUrl();
 
-        Map getContainerUrlParams();
+        Map<String ,Object> getContainerUrlParams();
 
 
     }

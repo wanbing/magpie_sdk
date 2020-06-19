@@ -2,14 +2,12 @@ package com.idlefish.flutterboost;
 
 import android.app.Application;
 import android.content.Context;
-import android.util.Log;
+
 import com.idlefish.flutterboost.interfaces.IContainerRecord;
 
-import java.lang.reflect.Method;
 import java.util.Map;
 
 import io.flutter.embedding.android.FlutterView;
-import io.flutter.plugin.common.PluginRegistry;
 
 /**
  * 插件注册方式 不在使用老的注册方式

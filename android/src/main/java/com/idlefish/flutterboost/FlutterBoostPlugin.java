@@ -1,6 +1,5 @@
 package com.idlefish.flutterboost;
 
-import android.os.Handler;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
@@ -8,7 +7,11 @@ import androidx.annotation.Nullable;
 import com.idlefish.flutterboost.interfaces.IContainerRecord;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -194,7 +197,7 @@ public class FlutterBoostPlugin {
             FlutterViewContainerManager mManager = (FlutterViewContainerManager) FlutterBoost.instance().containerManager();
             switch (methodCall.method) {
                 case "pageOnStart": {
-                    Map<String, Object> pageInfo = new HashMap<>();
+                    Map<String, Object> pageInfo = new HashMap<String, Object>();
 
                     try {
                         IContainerRecord record = mManager.getCurrentTopRecord();

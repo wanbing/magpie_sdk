@@ -24,8 +24,6 @@
 package com.idlefish.flutterboost;
 
 
-import android.util.Log;
-
 import com.idlefish.flutterboost.log.AndroidLog;
 import com.idlefish.flutterboost.log.ILog;
 

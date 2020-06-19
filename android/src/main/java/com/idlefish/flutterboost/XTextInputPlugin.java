@@ -8,7 +8,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.provider.Settings;
-
 import android.text.Editable;
 import android.text.InputType;
 import android.text.Selection;
@@ -53,9 +52,9 @@ public class XTextInputPlugin {
     // When true following calls to createInputConnection will return the cached lastInputConnection if the input
     // target is a platform view. See the comments on lockPlatformViewInputConnection for more details.
     private boolean isInputConnectionLocked;
-    private static  XTextInputPlugin xTextInputPlugin;
+    private static XTextInputPlugin xTextInputPlugin;
 
-    public  static  XTextInputPlugin getTextInputPlugin( DartExecutor dartExecutor, @NonNull PlatformViewsController platformViewsController){
+    public  static XTextInputPlugin getTextInputPlugin(DartExecutor dartExecutor, @NonNull PlatformViewsController platformViewsController){
         if(xTextInputPlugin!=null) return xTextInputPlugin;
         xTextInputPlugin =new XTextInputPlugin(dartExecutor,platformViewsController);
         return  xTextInputPlugin;

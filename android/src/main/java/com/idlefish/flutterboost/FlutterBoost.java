@@ -7,7 +7,15 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import com.idlefish.flutterboost.interfaces.*;
+
+import com.idlefish.flutterboost.interfaces.IContainerManager;
+import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
+import com.idlefish.flutterboost.interfaces.INativeRouter;
+
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
+
 import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterJNI;
@@ -15,10 +23,6 @@ import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.loader.FlutterLoader;
 import io.flutter.view.FlutterMain;
-
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
 
 public class FlutterBoost {
     private Platform mPlatform;

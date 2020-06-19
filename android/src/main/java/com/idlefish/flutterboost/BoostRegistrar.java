@@ -2,7 +2,14 @@ package com.idlefish.flutterboost;
 
 import android.app.Activity;
 import android.content.Context;
+
 import androidx.annotation.NonNull;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
 import io.flutter.Log;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.embedding.engine.plugins.activity.ActivityAware;
@@ -19,10 +26,6 @@ import io.flutter.view.FlutterMain;
 import io.flutter.view.FlutterNativeView;
 import io.flutter.view.FlutterView;
 import io.flutter.view.TextureRegistry;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 
 class BoostRegistrar implements Registrar, FlutterPlugin, ActivityAware {
     private static final String TAG = "ShimRegistrar";

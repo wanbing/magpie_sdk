@@ -1,18 +1,12 @@
 package com.idlefish.flutterboost;
 
-import android.annotation.TargetApi;
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
-//import android.graphics.Insets;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.LocaleList;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.VisibleForTesting;
-import androidx.core.view.ViewCompat;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
@@ -25,7 +19,11 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.FrameLayout;
 
-import java.lang.reflect.Field;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.VisibleForTesting;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -33,7 +31,9 @@ import java.util.Locale;
 import java.util.Set;
 
 import io.flutter.Log;
-import io.flutter.embedding.android.*;
+import io.flutter.embedding.android.AndroidTouchProcessor;
+import io.flutter.embedding.android.FlutterSurfaceView;
+import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
@@ -41,6 +41,8 @@ import io.flutter.embedding.engine.renderer.RenderSurface;
 import io.flutter.plugin.editing.TextInputPlugin;
 import io.flutter.plugin.platform.PlatformViewsController;
 import io.flutter.view.AccessibilityBridge;
+
+//import android.graphics.Insets;
 
 
 public class XFlutterView extends FrameLayout {
