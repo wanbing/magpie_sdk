@@ -18,6 +18,7 @@ import androidx.lifecycle.Lifecycle;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.XFlutterView;
 import com.idlefish.flutterboost.XPlatformPlugin;
+import com.idlefish.flutterboost.interfaces.IFragmentHiddenChange;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +31,7 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 
 
-public class FlutterFragment extends Fragment implements FlutterActivityAndFragmentDelegate.Host {
+public class FlutterFragment extends Fragment implements FlutterActivityAndFragmentDelegate.Host, IFragmentHiddenChange {
 
     private static final String TAG = "NewFlutterFragment";
 
@@ -108,6 +109,15 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
     @NonNull
     public static NewEngineFragmentBuilder withNewEngine() {
         return new NewEngineFragmentBuilder();
+    }
+
+    @Override
+    public void onFragmentHiddenChanged(boolean hidden) {
+        if (hidden) {
+            delegate.onPause();
+        } else {
+            delegate.onResume();
+        }
     }
 
 
@@ -318,11 +328,11 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        if (hidden) {
-            delegate.onPause();
-        } else {
-            delegate.onResume();
-        }
+//        if (hidden) {
+//            delegate.onPause();
+//        } else {
+//            delegate.onResume();
+//        }
     }
 
     @ActivityCallThrough
