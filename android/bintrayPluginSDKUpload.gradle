@@ -32,13 +32,13 @@ artifacts {
 def mRepo = "magpie"
 def gitUrl = 'https://github.com/wuba/magpie_sdk'   // Git仓库的url
 def groupIdDefined = "com.wuba.magpie"//
-def artifactIdDefined = "magpie_debug"
-def versionDefined = "2.0.2"
+def artifactIdDefined = "magpie_release"
+def versionDefined = "2.0.4"
 
 bintray {
     user = 'wanbing4926'
     key = '1328d47aabc37c4b0117fe606b6ec9e1e268bbee' //在"edit profile"的"API key"中
-    publications = [ 'libraryDebug' ] //'MyPublication'与下面的publishing闭包里的名称对应
+    publications = [ 'libraryRelease' ] //'MyPublication'与下面的publishing闭包里的名称对应
     publish = true // 上传后立即发布到Bintray平台
     pkg {
         repo = mRepo //保留，表示上传bintray中的maven仓库
