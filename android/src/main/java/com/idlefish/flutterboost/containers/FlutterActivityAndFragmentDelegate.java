@@ -176,7 +176,10 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         flutterEngine.getLifecycleChannel().appIsResumed();
         if(ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE==0||
                 ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE!=this.host.getActivity().hashCode()){
-            flutterEngine.getActivityControlSurface().detachFromActivityForConfigChanges();
+            try {
+                flutterEngine.getActivityControlSurface().detachFromActivityForConfigChanges();
+            } catch (Exception e){
+            }
             flutterEngine.getActivityControlSurface().attachToActivity(
                     host.getActivity(),
                     host.getLifecycle()
