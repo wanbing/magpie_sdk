@@ -163,7 +163,7 @@ public class MagpiePlugin  {
 
                 @Override
                 public void onError(Throwable e) {
-                    result.error("close page error", e.getMessage(), e);
+                    result.error("close page error", e.getMessage(), "");
                 }
 
                 @Override
