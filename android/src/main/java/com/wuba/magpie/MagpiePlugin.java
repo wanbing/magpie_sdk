@@ -154,7 +154,8 @@ public class MagpiePlugin extends FlutterBoostPlugin {
 
                 @Override
                 public void onError(Throwable e) {
-                    result.error("close page error", e.getMessage(), e);
+                    //将第三个参数修改为可支持参数
+                    result.error("close page error", e.getMessage(), "");
                 }
 
                 @Override
